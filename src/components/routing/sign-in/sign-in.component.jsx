@@ -1,9 +1,11 @@
 import './sign-in.styles.scss'
 import { createUserDocumentFromAuth, signInWithGooglePopup } from '../../../utils/firebase/firebase.utils'
+import SignUpForm from '../../sign-in-form/sign-up-form.component'
+
 
 const SignIn = () => {
 
-    const googleUser = async () => {
+    const googleUserPopup = async () => {
         const {user} = await signInWithGooglePopup()
         const userDocReference = await createUserDocumentFromAuth(user)
     }
@@ -12,10 +14,10 @@ const SignIn = () => {
 
         <div>
             <h1>Sign In</h1>
-            <button onClick={googleUser}>
+            <button onClick={googleUserPopup}>
                 Sign In With Google
             </button>
-
+            <SignUpForm />
         </div>
     )
 }
